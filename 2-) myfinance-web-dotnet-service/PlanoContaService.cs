@@ -3,7 +3,7 @@ using myfinance_web_dotnet_domain.Entities;
 using myfinance_web_dotnet_infra;
 using myfinance_web_dotnet_service.Interfaces;
 
-namespace myfinance_web_dotnet.Services
+namespace myfinance_web_dotnet_service.Interfaces
 {
     public class PlanoContaService : IPlanoContaService
     {
