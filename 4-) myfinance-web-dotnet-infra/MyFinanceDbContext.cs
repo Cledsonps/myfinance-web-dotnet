@@ -13,4 +13,13 @@ public class MyFinanceDbContext : DbContext
     {
         optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=myfinance;Trusted_Connection=True;Encrypt=false;TrustServerCertificate=False;");
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PlanoConta>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
+        // Outras configurações...
+    }
 }

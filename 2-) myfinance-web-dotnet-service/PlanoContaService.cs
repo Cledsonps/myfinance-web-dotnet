@@ -13,29 +13,24 @@ namespace myfinance_web_dotnet_service.Interfaces
             // Inicializa o contexto do banco de dados
             _dbContext = dbContext;
         }
-        // public PlanoContaService()  
-        // {
-        //     // Construtor da classe
-        // }
-
 
         public void Cadastrar(PlanoConta Entidade)
         {
-            // Adiciona a entidade ao contexto do banco de dados
             var dbSet = _dbContext.PlanoConta;
-            if  (dbSet == null)
+
+            if  (Entidade.Id == null)
             {
                 dbSet.Add(Entidade);
             }
-            // Altera a entidade ao contexto do banco de dados
             else
             {
                 dbSet.Attach(Entidade);
                 _dbContext.Entry(Entidade).State = EntityState.Modified;
             }
-            // Salva as alterações no banco de dados
+
             _dbContext.SaveChanges();
         }
+
 
         public void Excluir(int Id)
         {
