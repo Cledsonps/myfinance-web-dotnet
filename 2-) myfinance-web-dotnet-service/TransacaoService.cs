@@ -53,10 +53,12 @@ namespace myfinance_web_dotnet_service.Interfaces
         public List<Transacao> ListarRegistros()
         {
             // Retorna todos os registros de plano de conta do banco de dados
-            return _dbContext.Transacao.ToList();
+            // return _dbContext.Transacao.ToList();
+            var lista = _dbContext.Transacao.Include(x => x.PlanoConta).ToList();
+            return lista;
         }
 
-        public Transacao RetornarRegistr(int Id)
+        public Transacao RetornarRegistro(int Id)
         {
             if (Id == 0)
             {

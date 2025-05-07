@@ -51,6 +51,7 @@ namespace myfinance_web_dotnet.Controllers
 
         [HttpPost]
         [Route("Cadastrar")]
+        [Route("Cadastrar/{Id}")]
         public IActionResult Cadastrar(PlanoContaModel model)
         {
             var planoConta = new PlanoConta()

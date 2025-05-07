@@ -8,6 +8,8 @@ public class PlanoConta
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int? Id { get; set; }
+
     public string Descricao { get; set; }
+    
     public string Tipo { get; set; }
 }

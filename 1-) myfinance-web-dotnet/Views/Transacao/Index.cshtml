@@ -1,0 +1,58 @@
+@using myfinance_web_dotnet.Models
+
+@{
+    ViewBag.Title = "Transações Financeiras";
+}
+
+<h2>Plano de Contas</h2>
+
+<button onclick="Novo()" type="button" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;"> 
+    Registrar Transação
+</button>
+</br></br>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Histórico</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>#</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<TransacaoModel>)ViewBag.ListaTransacao)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Historico</td>
+                <td>@item.Tipo</td>
+                <td>@item.Valor</td>
+                <td>@item.Data</td>
+                <td><button type="button" class="btn btn-block btn-outline-warning" onclick="Atualizar(@item.Id)">Atualizar</button></td>
+                <td><button type="button" class="btn btn-block btn-outline-danger" onclick="Excluir(@item.Id)">Excluir</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add a button to create a new item -->
+<script>
+    function Novo()
+    {
+        window.location.href = "../Transacao/Cadastrar";
+    }
+
+    function Atualizar(id)
+    {
+        window.location.href = "../Transacao/Cadastrar/" + id;
+    }
+
+    function Excluir(id)
+    {
+        window.location.href = "../Transacao/Excluir/" + id;
+    }
+</script>
