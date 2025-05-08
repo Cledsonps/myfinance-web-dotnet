@@ -31,42 +31,22 @@ namespace myfinance_web_dotnet_service.Interfaces
             _dbContext.SaveChanges();
         }
 
-
         public void Excluir(int Id)
         {
-            // Verifica se o ID é válido
-            if(Id != 0)
-            {
-                // Remove a entidade do contexto do banco de dados
-                var planoConta = new PlanoConta { Id = Id };
-                _dbContext.Attach(planoConta);
-                _dbContext.Remove(planoConta);
-                _dbContext.SaveChanges();                
-            }
-            else
-            {
-                // Lança uma exceção se o ID não for válido
-                throw new ArgumentException("O ID não pode ser zero.");
-            }
+            var planoConta = new PlanoConta { Id = Id };
+            _dbContext.Attach(planoConta);
+            _dbContext.Remove(planoConta);
+            _dbContext.SaveChanges();      
         }
 
         public List<PlanoConta> ListarRegistros()
         {
-            // Retorna todos os registros de plano de conta do banco de dados
             return _dbContext.PlanoConta.ToList();
         }
 
         public PlanoConta RetornarRegistr(int Id)
         {
-            if (Id == 0)
-            {
-                // Lança uma exceção se o ID não for válido
-                throw new ArgumentException("O ID não pode ser zero.");
-            }else
-            {
-                // Retorna um registro de plano de conta específico com base no ID
-                return _dbContext.PlanoConta.FirstOrDefault(x => x.Id == Id);
-            }
+            return _dbContext.PlanoConta.FirstOrDefault(x => x.Id == Id);
         }
 
     }

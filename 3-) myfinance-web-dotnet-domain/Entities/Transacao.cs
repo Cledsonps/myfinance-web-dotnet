@@ -1,7 +1,10 @@
-﻿namespace myfinance_web_dotnet_domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace myfinance_web_dotnet_domain.Entities;
 
 public class Transacao
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int? Id { get; set; }
     public string Historico { get; set; }
     public DateTime Data { get; set; }
