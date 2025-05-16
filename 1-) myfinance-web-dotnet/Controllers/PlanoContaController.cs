@@ -49,7 +49,7 @@ namespace myfinance_web_dotnet.Controllers
         {
             if (Id != null)
             {
-                var planoConta = _planoContaService.RetornarRegistr((int)Id);
+                var planoConta = _planoContaService.RetornarRegistro((int)Id);
 
                 var planoContaModel = new PlanoContaModel()
                 {

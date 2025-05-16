@@ -1,7 +1,7 @@
 ﻿
 using myfinance_web_dotnet_domain.Entities;
 
-namespace myfinance_web_dotnet_infra.Interfaces.Base
+namespace myfinance_web_dotnet_infra.Repositories.Base
 {
     public interface IRepository<TEntity> where TEntity : class
     {
